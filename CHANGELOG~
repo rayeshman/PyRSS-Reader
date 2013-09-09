@@ -1,0 +1,54 @@
+version 0.0.1
+    - project started
+
+version 0.0.2
+    - added desktop notification (pynotify)
+    - added desktop notification highlight support
+    - added mention suggestion/autocompletion after @
+    - add mimetype check for notices attachments
+    - added text/html attachment loading via ajax
+    - keep retrieved notices in memory (sorted)
+    - many small javascript UI improvements
+    - fixed: showing duplicated notices
+    
+version 0.0.2-1
+    - fixed textbox getting blank when new notices arrives
+
+version 0.0.3
+    - notices in viewport (while scrolling) are flagged as read automatically
+    - added popup for user info over user's avatar
+    - added favorite button
+    - fixed some css errors
+
+version 0.0.4
+    - new look
+    - added replies panel
+    - added load previous page button
+    - adedd Bitly url shorten (javascript)
+    - added Text shorten (for now just removes http:// to shorten text)
+    - javascript text direction added
+    - a lot of code clean ups & refactoring
+
+version 0.1
+    - added new plugin for friends suggestion (Bootstrap Mention.js)
+    - improved python notifications/web streams
+    - many UserInterface functionality improvements
+    - fixed duplicated posted dent's and repeats
+
+version 0.1.1
+    - HOTFIX: tries to search for json data when api result is not in jason format (probably because of server dumping errors)
+
+version 0.1.2
+    - HOTFIX: (high security fix) Crow now listens on localhost (127.0.0.1:8888) now
+
+version 0.2.0
+    - added unified status form with new look
+    - added friends/groups auto-completion
+    - added configuration for notifications, crow server port number and instance api path
+    - added force open in new new tabs for external links
+    - added thumbnails for youtube link-attachments
+    - added conversation load option which load the entire conversation which a dents is in it
+    - added shortcut ESC key to toggle notice form
+    - prevent sending notices by pressing SHIFT+ENTER which now adds new line character
+    - enhanced squeeze text plugin which tries to shorten status text as much as possible by replacing special characters and removing duplicated white spaces
+    - css improvments
