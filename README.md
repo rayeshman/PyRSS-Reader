@@ -3,6 +3,8 @@ PyRSS-Reader
 
 PyRSS Reader, is an RSS reader written in python 3 (with GTK+ , Webkit and feedparser)
 
+IMPORTANT NOTE: This project is not mine, @rayeshman transfered this to me!
+
 Version
 ---------------
 0.0.1 
@@ -19,7 +21,7 @@ Get the code
 
         mkdir PyRSS-Reader
         cd PyRSS-Reader
-        git clone https://github.com/rayeshman/PyRSS-Reader.git ./
+        git clone https://github.com/farooghkz/PyRSS-Reader.git ./
         
 ### Run
 
