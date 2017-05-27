@@ -1,6 +1,6 @@
 '''
     PyRSS Reader - a simple RSS reader written in Python with feedparser and GTK+
-    Copyright (C) 2016, 2017  Rayeshman <rayeshman's email here>
+    Copyright (C) 2016, 2017  Rayeshman
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
