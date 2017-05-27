@@ -15,8 +15,8 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '''
-from gi.repository import Gtk,WebKit
-import feedparser,socket
+from gi.repository import Gtk, WebKit
+import feedparser, socket
 
 class MyWindow(Gtk.Window):
 
@@ -27,20 +27,20 @@ class MyWindow(Gtk.Window):
         socket.setdefaulttimeout(timeout)
         
         # An empty window #
-        Gtk.Window.__init__(self, title="PyRSS Reader")
+        Gtk.Window.__init__(self, title = "PyRSS Reader")
         self.set_size_request(1000, 700)
 
         ##### Some objects #
 
         ### Boxes
-        self.vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        self.vbox = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
         self.hbox = Gtk.Box()
         
         ## List Store
         self.liststore = Gtk.ListStore(str, str, str, str) 
         self.treeview = Gtk.TreeView(self.liststore)
         self.txtrenderer = Gtk.CellRendererText()
-        self.column1 = Gtk.TreeViewColumn('Feed summary', self.txtrenderer,text=1)
+        self.column1 = Gtk.TreeViewColumn('Feed summary', self.txtrenderer, text = 1)
         self.treeview.append_column(self.column1)
         self.treeview.connect("row-activated", self.tree_doubleclick)
         
@@ -58,14 +58,14 @@ class MyWindow(Gtk.Window):
         self.panes.pack2(scrolledwindow,  True,  True)
         
         ## Import Entry
-        self.entry = Gtk.Entry(text='')
+        self.entry = Gtk.Entry(text = '')
         
         ## Import Button
         self.button = Gtk.Button("Import")
         self.button.connect("clicked", self.on_button_clicked)
 
         ## RTL CheckButton
-        self.checkbutton = Gtk.CheckButton(label="Force RTL?")
+        self.checkbutton = Gtk.CheckButton(label = "Force RTL?")
         self.checkbutton.connect("clicked", self.on_checkbutton_clicked)
         
         ## Spinner
@@ -81,7 +81,7 @@ class MyWindow(Gtk.Window):
         
         ## Hbox
         self.hbox.pack_start(self.entry, True, True, 0)
-        self.hbox.pack_start(self.button, False,False, 0)
+        self.hbox.pack_start(self.button, False, False, 0)
         self.hbox.pack_start(self.checkbutton, False, False, 0)
         self.hbox.pack_start(self.spinner, False, False, 0)
 
@@ -94,12 +94,12 @@ class MyWindow(Gtk.Window):
     def fill_treeview(self):
         self.liststore.clear()
         self.ident = feedparser.parse(self.feed_url)
-        for i in range(len(self.ident.entries)):
+        for i, v in enumerate(self.ident.entries):
             #get the date/timer
-            time=self.ident.entries[i].updated
-            title=self.ident.entries[i].title
-            summary=self.ident.entries[i].summary
-            link=self.ident.entries[i].link
+            time = self.ident.entries[i].updated
+            title = self.ident.entries[i].title
+            summary = self.ident.entries[i].summary
+            link = self.ident.entries[i].link
             self.liststore.append([time, title, summary, link])
 
     def tree_doubleclick(self, tree,  path,  column):
@@ -108,7 +108,7 @@ class MyWindow(Gtk.Window):
         self.url = self.liststore[path[0]][3]
         if self.checkbutton.get_active():
             self.webview.load_html_string("<body dir=\"rtl\">" + "<strong>عنوان:"+self.title + "</strong><br/>" + self.content +"<br/>آدرس: " +"<a href=\""+ self.url + "\">" + self.title + "</a>","file:///")
-        else :
+        else:
             self.webview.load_html_string("<strong>Title:"+self.title + "</strong><br/>" + self.content +"<br/>URL: " + "<a href=\""+ self.url + "\">" + self.title + "</a>","file:///")
     
     def on_button_clicked(self,a):
@@ -121,9 +121,9 @@ class MyWindow(Gtk.Window):
 
     def on_checkbutton_clicked(self,a):
         if self.checkbutton.get_active():
-            self.webview.load_html_string("<body dir=\"rtl\">" + "<strong>عنوان:"+self.title + "</strong><br/>" + self.content +"<br/>آدرس: " +"<a href=\""+ self.url + "\">" + self.title + "</a>","file:///")
+            self.webview.load_html_string("<body dir=\"rtl\">" + "<strong>عنوان:" + self.title + "</strong><br/>" + self.content +"<br/>آدرس: " + "<a href=\""+ self.url + "\">" + self.title + "</a>", "file:///")
         else :
-            self.webview.load_html_string("<strong>Title:"+self.title + "</strong><br/>" + self.content +"<br/>URL: " + "<a href=\""+ self.url + "\">" + self.title + "</a>","file:///")
+            self.webview.load_html_string("<strong>Title:" + self.title + "</strong><br/>" + self.content + "<br/>URL: " + "<a href=\"" + self.url + "\">" + self.title + "</a>" ,"file:///")
 
 win = MyWindow()
 win.connect("delete-event", Gtk.main_quit)
