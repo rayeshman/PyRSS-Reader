@@ -1,9 +1,7 @@
 PyRSS-Reader
 ============
 
-PyRSS Reader, is an RSS reader written in python 3 (with GTK+ , Webkit and feedparser)
-
-IMPORTANT NOTE: This project is not mine, @rayeshman transfered this to me!
+**PyRSS Reader** is a simple RSS reader written in Python 3 (with GTK+ , Webkit and feedparser)
 
 Version
 ---------------
@@ -11,7 +9,7 @@ Version
 
 Requirements
 ---------------
-You should have Gtk for python 3 if you dont install it!
+You should have GTK+ for Python 3 if you didn't install it!
 And for feedparser you can install it with pip-python3.
 
 Get the code
