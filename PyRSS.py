@@ -53,7 +53,7 @@ class MyWindow(Gtk.Window):
         scrolledwindow2 = Gtk.ScrolledWindow(hexpand = True , vexpand = True)
         
         # Paned
-        self.panes=Gtk.HPaned()
+        self.panes = Gtk.HPaned()
         self.panes.pack1(scrolledwindow2,  True, True)
         self.panes.pack2(scrolledwindow,  True,  True)
         
