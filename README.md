@@ -19,7 +19,7 @@ Get the code
 
         mkdir PyRSS-Reader
         cd PyRSS-Reader
-        git clone https://github.com/farooghkz/PyRSS-Reader.git ./
+        git clone https://github.com/rayeshman/PyRSS-Reader.git
         
 ### Run
 
